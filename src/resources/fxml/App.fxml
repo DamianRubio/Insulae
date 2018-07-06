@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.lynden.gmapsfx.GoogleMapView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="appAnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppController">
+	<children>
+		<BorderPane layoutX="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<left>
+				<BorderPane prefHeight="375.0" prefWidth="212.0" BorderPane.alignment="CENTER">
+               <center>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="375.0" prefViewportWidth="212.0" styleClass="userInputScrollPane">
+                           <content>
+                              <VBox fx:id="userInputVBox" alignment="CENTER_LEFT" spacing="10.0" styleClass="userInputVBox">
+                                 <children>
+            										<Label fx:id="coordenatesLabel" minHeight="-Infinity" styleClass="coordenatesLabel" text="Introduce tus coordenadas en formato decimal (separado con un punto):" wrapText="true" />
+            										<TextField fx:id="latText" promptText="Latitud" styleClass="latText" />
+            										<TextField fx:id="lonText" promptText="Longitud" styleClass="lonText" />
+            										<Label fx:id="checkboxLabel" minHeight="-Infinity" styleClass="checkboxLabel" text="Seleccione los datos que desea visualizar:" wrapText="true" />
+            										<CheckBox fx:id="swhCheckBox" mnemonicParsing="false" styleClass="inputCheckBox" text="Altura significativa de la ola" wrapText="true" />
+            										<CheckBox fx:id="mwpCheckBox" mnemonicParsing="false" styleClass="inputCheckBox" text="Periodo medio del oleaje" wrapText="true" />
+            										<CheckBox fx:id="windCheckBox" mnemonicParsing="false" styleClass="inputCheckBox" text="Velocidad del viento" wrapText="true" />
+            										<Separator styleClass="userInputSeparator" />
+            										<Button fx:id="visualizeButton" mnemonicParsing="false" onAction="#visualize" prefHeight="25.0" prefWidth="221.0" styleClass="visualizeButton" text="Visualizar" />
+            										<Label fx:id="errorLabel" maxHeight="-Infinity" minHeight="-Infinity" styleClass="errorLabel" text="" textAlignment="CENTER" wrapText="true" />
+                                    <Separator fx:id="querySeparator" styleClass="userInputSeparator" visible="false" />
+                                    <HBox fx:id="queryHBox" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <ComboBox fx:id="queryComboBox" prefHeight="27.0" prefWidth="121.0" styleClass="languageComboBox" visible="false" />
+                                          <Button fx:id="queryButton" mnemonicParsing="false" onAction="#deleteQueryPoint" prefHeight="25.0" prefWidth="81.0" styleClass="visualizeButton" text="Eliminar" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="availableInfoLabel" maxHeight="-Infinity" minHeight="-Infinity" styleClass="availableInfoLabel" text="" textAlignment="CENTER" wrapText="true" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </center>
+				</BorderPane>
+			</left>
+			<top>
+      				<MenuBar>
+      					<menus>
+      						<Menu fx:id="fileMenu" text="_File">
+      							<items>
+                        <MenuItem fx:id="exportMenuItem" onAction="#doExport" text="">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="P" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <SeparatorMenuItem fx:id="separatorFileMenu" mnemonicParsing="false" />
+      								<MenuItem fx:id="exitMenuItem" onAction="#doExit" text="Exit">
+      									<accelerator>
+      										<KeyCodeCombination alt="UP" code="E" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+      									</accelerator>
+      								</MenuItem>
+      							</items>
+      						</Menu>
+      						<Menu fx:id="toolsMenu" mnemonicParsing="false" text="_Tools">
+      							<items>
+                        <Menu fx:id="searchModeMenu" mnemonicParsing="false" text="Search Mode">
+                           <items>
+                              <RadioMenuItem fx:id="proximitySearchModeMenu" mnemonicParsing="false" text="Proximity" />
+                              <RadioMenuItem fx:id="prudentSearchModeMenu" mnemonicParsing="false" text="Prudent" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="comparisonModeMenu" mnemonicParsing="false" text="Comparison Mode">
+                          <items>
+                              <RadioMenuItem fx:id="noComparisonModeMenu" mnemonicParsing="false" text="No" />
+                              <RadioMenuItem fx:id="yesComparisonModeMenu" mnemonicParsing="false" text="Yes" />
+                          </items>
+                        </Menu>
+                        <MenuItem fx:id="pickMapPointMenu" mnemonicParsing="false" onAction="#doFireMap" text="Pick map point" />
+                        <SeparatorMenuItem fx:id="menu" mnemonicParsing="false" />
+                        <Menu fx:id="settingsMenu" mnemonicParsing="false" text="Unspecified Menu">
+                          <items>
+                            <MenuItem fx:id="directoryMenuItem" mnemonicParsing="false" onAction="#doChangeScourceDirectory" />
+                              <MenuItem fx:id="numberOfFilesMenuItem" mnemonicParsing="false" onAction="#doChangeNumberOfFiles" text="" />
+                          </items>
+                        </Menu>
+      							</items>
+      						</Menu>
+      						<Menu fx:id="helpMenu" mnemonicParsing="false" text="Help">
+      							<items>
+      								<MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#doShowAbout" text="About" />
+      							</items>
+      						</Menu>
+      					</menus>
+      				</MenuBar>
+			</top>
+         <center>
+            <BorderPane fx:id="graphBorderPane" focusTraversable="true">
+               <center>
+                  <ScrollPane fx:id="graphsScrollPane" fitToHeight="true" fitToWidth="true" prefViewportHeight="326.0" prefViewportWidth="388.0" styleClass="graphsScrollPane" BorderPane.alignment="CENTER">
+                     <content>
+                        <VBox fx:id="graphsVBox" focusTraversable="true" styleClass="graphsVBox" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox fx:id="languageHBox" alignment="CENTER_RIGHT" focusTraversable="true">
+                                 <children>
+                                    <Label fx:id="languageLabel" minWidth="-Infinity" styleClass="languageLabel" text="Idioma:" />
+                                    <ComboBox fx:id="languageComboBox" minWidth="-Infinity" onAction="#languageComboAction" prefWidth="150.0" promptText="" styleClass="languageComboBox">
+                                       <HBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="outputLabel" managed="false" styleClass="outputLabel" visible="false">
+                                 <VBox.margin>
+                                    <Insets left="2.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="consumeModeLabel" managed="false" styleClass="outputLabel" visible="false">
+                              <VBox.margin>
+                                    <Insets left="2.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <LineChart fx:id="swhChart" focusTraversable="true" managed="false" minHeight="-Infinity" styleClass="swhChart" title="Altura significativa de la ola" visible="false">
+                                <xAxis>
+                                  <CategoryAxis label="Fecha" side="BOTTOM" tickLabelRotation="0.0" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis label="Altura (m)" side="LEFT" />
+                                </yAxis>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </LineChart>
+                              <LineChart fx:id="mwpChart" focusTraversable="true" managed="false" minHeight="-Infinity" title="Periodo medio del oleaje" visible="false">
+                                <xAxis>
+                                  <CategoryAxis label="Fecha" side="BOTTOM" tickLabelRotation="0.0" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis label="Periodo (s)" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <LineChart fx:id="windChart" focusTraversable="true" managed="false" minHeight="-Infinity" title="Velocidad del viento" visible="false">
+                                <xAxis>
+                                  <CategoryAxis label="Fecha" side="BOTTOM" tickLabelRotation="0.0" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis label="Velocidad (nudos)" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <VBox fx:id="infoVBox" alignment="CENTER" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="infoTextLabel" minHeight="-Infinity" styleClass="infoTextLabel" text="" wrapText="true">
+                                       <VBox.margin>
+                                          <Insets left="25.0" right="25.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <BorderPane fx:id="mapBorderPane">
+                                 <bottom>
+                                    <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Label fx:id="selectedPointLabel" styleClass="coordenatesLabel" text="" textAlignment="CENTER" />
+                                          <HBox fx:id="mapHBox" alignment="CENTER">
+                                             <children>
+                                                <Button fx:id="acceptMapButton" mnemonicParsing="false" onAction="#doAcceptMap" styleClass="visualizeButton" text="Accept">
+                                                   <HBox.margin>
+                                                       <Insets right="5.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Button fx:id="cancelMapButton" mnemonicParsing="false" onAction="#doCancelMap" styleClass="visualizeButton" text="Cancel">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </bottom>
+                                 <center>
+                                    <AnchorPane BorderPane.alignment="CENTER">
+                                       <children>
+                                    	<GoogleMapView fx:id="googleMapView" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </center>
+		</BorderPane>
+	</children>
+</AnchorPane>

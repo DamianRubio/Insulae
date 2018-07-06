@@ -1,0 +1,188 @@
+/* Whole frame styling */
+
+
+/* LEFT PART OF THE APPLICATION STYLING */
+
+.userInputScrollPane {
+	-fx-background-color: #012345;
+	-fx-focus-color: transparent; 
+}
+
+.userInputVBox{
+	-fx-background-color: #012345;
+	-fx-focus-color: transparent; 
+}
+
+/* Coordinates user input section */
+.coordenatesLabel{
+	-fx-text-fill: #F4F5F0;
+}
+
+.latText {
+    -fx-background-color: #456789;
+    -fx-text-fill: #F4F5F0;
+}
+
+.latText:focused {
+    -fx-background-color: #456789;
+    -fx-border-color: #F4F5F0;
+}
+
+.lonText {
+    -fx-background-color: #456789;
+    -fx-text-fill: #F4F5F0;
+}
+
+.lonText:focused {
+    -fx-background-color: #456789;
+    -fx-border-color: #F4F5F0;
+}
+
+
+/* Checkbox user input section */
+.checkboxLabel{
+	-fx-text-fill: #F4F5F0;
+}
+
+.inputCheckBox{
+	-fx-text-fill: #F4F5F0;
+}
+
+.inputCheckBox .box {
+	-fx-background-color: #456789;
+	-fx-border-color: #456789;
+}
+
+.inputCheckBox:focused .box {
+	-fx-background-color: #456789;
+	-fx-border-color: #F4F5F0;
+}
+
+.inputCheckBox:selected .mark {
+	-fx-background-color: #F4F5F0;
+}
+
+.inputCheckBox:selected .box {
+	-fx-background-color: #456789;
+}
+
+/* Separator */
+.userInputSeparator *.line {
+    -fx-border-style: solid;
+    -fx-border-color: #456789;
+}
+
+/* Visualize button */
+.visualizeButton {
+    -fx-background-color: #456789;
+    -fx-text-fill: #F4F5F0;
+    -fx-font-weight: bold;
+}
+
+.visualizeButton:hover{
+    -fx-background-color: #F4F5F0;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-text-fill: #456789;
+}
+
+.visualizeButton:focused {
+    -fx-border-color: #F4F5F0;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}
+
+.visualizeButton:disabled {
+  -fx-opacity: 0.3 ;
+}
+
+/* Error Label styling */
+.errorLabel{
+	-fx-text-fill: #E8850C;
+}
+
+/* Available Info Label styling */
+.availableInfoLabel{
+	-fx-text-fill: #F4F5F0;
+	-fx-opacity: 0.5;
+}
+
+/* RIGHT PART OF THE APPLICATION STYLING */
+
+.graphsScrollPane {
+	-fx-background-color: #345678;
+	-fx-focus-color: transparent; 
+}
+
+.graphsVBox {
+	-fx-background-color: #345678;
+	-fx-focus-color: transparent; 
+}
+
+/* Language selector style */
+.languageLabel{
+	-fx-text-fill: #F4F5F0;
+}
+
+.languageComboBox{
+	-fx-background-color: #123456;
+}
+
+.languageComboBox .list-cell {
+    -fx-background: #234567;
+    -fx-background-color: #234567;
+    -fx-text-fill: #F4F5F0;
+    -fx-border-color: transparent;
+}
+
+.languageComboBox .list-view{
+    -fx-background-color: transparent;
+}
+
+.languageComboBox .list-view .list-cell:filled:selected, .languageComboBox .list-view .list-cell:filled:selected:hover{
+    -fx-background-color: #012345;
+    -fx-text-fill: #F4F5F0;
+}
+
+.languageComboBox .list-view .list-cell:filled:hover{
+    -fx-background-color: #123456;
+    -fx-text-fill: #F4F5F0;
+}
+
+.languageComboBox .arrow{
+    -fx-background-color: #234567;
+}
+
+/* Info styling */
+.outputLabel{
+	-fx-text-fill: #F4F5F0;
+}
+
+/* Graph styling */
+.chart-title {
+    -fx-text-fill: #F4F5F0;
+    -fx-font-size: 1.5em;
+}
+
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.axis{
+	-fx-tick-label-fill: #F4F5F0;
+	-fx-tick-label-font-size: 0.75em;
+}
+
+.axis-label {
+	-fx-text-fill: #F4F5F0;
+}
+
+/* InfoTextLabel styling */
+.infoTextLabel{
+	-fx-text-fill: #F4F5F0;
+	-fx-background-color: #123456;
+	-fx-border-color:#012345;  
+	-fx-font-size: 1.6em;
+	-fx-text-alignment: center;
+}
+

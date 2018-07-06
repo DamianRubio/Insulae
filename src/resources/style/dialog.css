@@ -1,0 +1,25 @@
+/* Styling the dialog */
+
+.errorDialog{
+    -fx-background-color: #012345;
+}
+
+.errorDialog > *.button-bar > *.container{
+    -fx-background-color: #012345;
+}
+
+.errorDialog:header *.header-panel{
+    -fx-background-color: #012345;
+}
+
+
+.errorDialog:header *.header-panel *.label{
+    -fx-font-size: 1.25em;
+    -fx-text-fill: #F4F5F0;
+    -fx-font-weight: bold;
+}
+
+.errorDialog > *.label.content{
+    -fx-font-size: 1em;
+    -fx-text-fill: #F4F5F0;
+}

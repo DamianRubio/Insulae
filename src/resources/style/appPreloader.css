@@ -1,0 +1,18 @@
+/* Whole frame styling */
+
+.anchor-pane{
+	-fx-background-color: #012345;
+}
+
+.border-pane{
+	-fx-background-color: #012345;
+}
+
+.progress-indicator{
+	-fx-progress-color: #456789;
+}
+
+.progress-indicator .percentage {
+    -fx-font-size: 2em;
+    -fx-fill: #456789;
+}
